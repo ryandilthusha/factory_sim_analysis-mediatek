@@ -1,0 +1,78 @@
+# Factory Simulation Configuration - BASELINE
+# ============================================
+# This is the baseline configuration for the Production Line Optimization Challenge.
+# Your task is to analyze this configuration, identify bottlenecks, and create
+# an optimized version (config_optimized.yaml) with improved parameters.
+#
+# NOTE: Parameters marked with (FIXED) cannot be modified as they represent
+# equipment characteristics that cannot be changed.
+
+# General Simulation Parameters
+simulation:
+  duration_hours: 168          # Simulation duration (1 week)
+  random_seed: 42              # For reproducibility
+  debug_mode: false
+
+# Order Arrival Parameters
+order_arrival:
+  interarrival_time_hours: 0.15 # Average time between orders (exponential distribution)
+  # This means ~6.6 orders per hour on average.
+  # Bottleneck (Machine B) capacity is ~8.5 orders/hour.
+  # System is running at ~78% capacity, making it sensitive to failures.
+
+# Parts Warehouse Parameters
+# MODIFIABLE: You can adjust these to optimize inventory management
+parts_warehouse:
+  initial_parts: 200            # Starting inventory
+  capacity: 500                 # Maximum storage capacity
+  replenishment_interval_hours: 12  # How often parts are delivered
+  replenishment_quantity: 100   # How many parts per delivery
+
+# Production Line Parameters
+production_line:
+  # Buffer sizes between machines - MODIFIABLE
+  buffer_A_B_size: 5            # Queue capacity between Machine A and B
+  buffer_B_C_size: 5            # Queue capacity between Machine B and C
+  
+  machines:
+    - name: "Machine A"
+      processing_time_minutes: 5    # MODIFIABLE: Time to process one item
+      mtbf_hours: 10                # (FIXED) Mean Time Between Failures
+      mttr_hours: 2                 # (FIXED) Mean Time To Repair
+      
+    - name: "Machine B"
+      processing_time_minutes: 7    # MODIFIABLE: Time to process one item
+      mtbf_hours: 15                # (FIXED) Mean Time Between Failures
+      mttr_hours: 3                 # (FIXED) Mean Time To Repair
+      
+    - name: "Machine C"
+      processing_time_minutes: 4    # MODIFIABLE: Time to process one item
+      mtbf_hours: 12                # (FIXED) Mean Time Between Failures
+      mttr_hours: 2.5               # (FIXED) Mean Time To Repair
+
+# Finished Products Storage Parameters
+# MODIFIABLE: Adjust to balance WIP inventory vs throughput
+finished_storage:
+  capacity: 30                  # Maximum finished goods storage
+
+# Logistics Parameters
+# MODIFIABLE: Adjust shipping frequency and capacity
+logistics:
+  lorry_capacity: 20            # Products per shipment
+  driver:
+    car_issue_prob: 0.05        # (FIXED) Probability of vehicle issues
+    issue_delay_hours: 4        # (FIXED) Average delay when issues occur
+
+# ============================================
+# BASELINE EXPECTED RESULTS (for reference):
+# - Throughput: ~6.5 orders/hour
+# - Average Lead Time: ~10.0 - 15.0 hours
+# - Machine Utilization: B is primary bottleneck (~75-80%)
+# - System is highly sensitive to machine failures and buffer sizes.
+# ============================================
+
+# OPTIMIZATION HINTS:
+# 1. Machine B has the longest processing time (7 min) - this creates a bottleneck.
+# 2. Buffer sizes are small (5), causing upstream machines to block during failures.
+# 3. Warehouse replenishment (100 every 12h) is tight compared to demand (~80 every 12h).
+# 4. Lorry capacity (20) means shipments happen every ~3 hours.

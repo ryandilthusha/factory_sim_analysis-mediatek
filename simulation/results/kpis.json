@@ -1,0 +1,20 @@
+{
+  "throughput_orders_per_hour": 6.493738338167826,
+  "average_lead_time_hours": 11.899046151929959,
+  "max_lead_time_hours": 27.7453630940733,
+  "min_lead_time_hours": 0.26666666666666666,
+  "machine_a_utilization": 0.5525635145551117,
+  "machine_b_utilization": 0.770113678147238,
+  "machine_c_utilization": 0.44006495894126485,
+  "total_shipments": 53,
+  "total_products_shipped": 1060.0,
+  "average_products_per_shipment": 20.0,
+  "delay_rate": 0.018867924528301886,
+  "average_delay_time_hours": 5.497686462583597,
+  "average_warehouse_wait_time": 0.0,
+  "average_warehouse_inventory": 301.16237799467615,
+  "average_buffer_A_B_level_level": 0.5,
+  "max_buffer_A_B_level_level": 1,
+  "average_buffer_B_C_level_level": 0.5,
+  "max_buffer_B_C_level_level": 1
+}

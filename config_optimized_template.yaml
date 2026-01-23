@@ -1,0 +1,72 @@
+# Factory Simulation Configuration - OPTIMIZED
+# ============================================
+# This is a TEMPLATE for your optimized configuration.
+# Copy this file to config_optimized.yaml and modify the parameters
+# based on your analysis.
+#
+# Document your changes and reasoning in your optimization report.
+
+# General Simulation Parameters (DO NOT MODIFY)
+simulation:
+  duration_hours: 168          # Keep same as baseline for comparison
+  random_seed: 42              # Keep same for reproducibility
+  debug_mode: false
+
+# Order Arrival Parameters (DO NOT MODIFY)
+order_arrival:
+  interarrival_time_hours: 0.5  # Keep same - this is the demand rate
+
+# Parts Warehouse Parameters
+# TODO: Analyze if parts availability is a constraint
+parts_warehouse:
+  initial_parts: 500            # Consider: Is starting inventory sufficient?
+  capacity: 1000                # Consider: Do we need more storage?
+  replenishment_interval_hours: 24  # Consider: More frequent deliveries?
+  replenishment_quantity: 500   # Consider: Larger deliveries?
+
+# Production Line Parameters
+production_line:
+  # TODO: Analyze buffer utilization - are items waiting in queues?
+  buffer_A_B_size: 10           # Consider: Increase if Machine A is blocked
+  buffer_B_C_size: 10           # Consider: Increase if Machine B is blocked
+  
+  machines:
+    - name: "Machine A"
+      processing_time_minutes: 5    # Consider: Can this be reduced?
+      mtbf_hours: 10                # FIXED - cannot modify
+      mttr_hours: 2                 # FIXED - cannot modify
+      
+    - name: "Machine B"
+      processing_time_minutes: 7    # BOTTLENECK - Consider reducing
+      mtbf_hours: 15                # FIXED - cannot modify
+      mttr_hours: 3                 # FIXED - cannot modify
+      
+    - name: "Machine C"
+      processing_time_minutes: 4    # Consider: Already fastest machine
+      mtbf_hours: 12                # FIXED - cannot modify
+      mttr_hours: 2.5               # FIXED - cannot modify
+
+# Finished Products Storage Parameters
+# TODO: Analyze if Machine C is blocked waiting for storage
+finished_storage:
+  capacity: 50                  # Consider: Increase if blocking occurs
+
+# Logistics Parameters
+# TODO: Analyze shipment frequency and delays
+logistics:
+  lorry_capacity: 20            # Consider: Smaller = more frequent shipments
+  driver:
+    car_issue_prob: 0.05        # FIXED - cannot modify
+    issue_delay_hours: 4        # FIXED - cannot modify
+
+# ============================================
+# YOUR OPTIMIZATION NOTES:
+# ============================================
+# Change 1: [Describe what you changed and why]
+#
+# Change 2: [Describe what you changed and why]
+#
+# Change 3: [Describe what you changed and why]
+#
+# Expected Impact: [What improvement do you expect?]
+# ============================================
