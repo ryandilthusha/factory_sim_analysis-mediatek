@@ -17,10 +17,17 @@ sys.path.insert(0, str(src_dir))
 from simulation import FactorySimulation
 from analysis.reporting import generate_report
 
-def load_config(config_path='../config.yaml'):
+def load_config(config_path=None):
     """Load configuration from YAML file"""
+    # If config path is given via command line, use it
+    if config_path is None:
+        if len(sys.argv) > 1:
+            config_path = sys.argv[1]
+        else:
+            config_path = '../config.yaml'
     try:
         with open(config_path, 'r') as file:
+            print(f"Loading config from: {config_path}")
             return yaml.safe_load(file)
     except FileNotFoundError:
         print(f"Config file not found: {config_path}")

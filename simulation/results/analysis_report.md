@@ -10,31 +10,31 @@
 ## Key Performance Indicators
 
 ### Production Performance
-- **Throughput**: 4.44 orders/hour
-- **Average Lead Time**: 28.80 hours
-- **Min Lead Time**: 0.27 hours
-- **Max Lead Time**: 56.16 hours
+- **Throughput**: 4.94 orders/hour
+- **Average Lead Time**: 20.00 hours
+- **Min Lead Time**: 0.25 hours
+- **Max Lead Time**: 46.18 hours
 
 ### Machine Utilization
-- **Machine A**: 37.4%
-- **Machine B**: 52.0%
-- **Machine C**: 29.6%
+- **Machine A**: 42.1%
+- **Machine B**: 49.8%
+- **Machine C**: 33.0%
 
 ### Inventory & Buffers
-- **Avg Warehouse Inventory**: 389.3 parts
-- **Buffer A B**: Avg: 4.59, Max: 5
-- **Buffer B C**: Avg: 0.42, Max: 5
+- **Avg Warehouse Inventory**: 354.2 parts
+- **Buffer A B**: Avg: 7.43, Max: 10
+- **Buffer B C**: Avg: 0.27, Max: 5
 
 ### Logistics Performance
-- **Total Shipments**: 37
-- **Products Shipped**: 740.0
+- **Total Shipments**: 39
+- **Products Shipped**: 780.0
 - **Avg Products/Shipment**: 20.0
-- **Delay Rate**: 2.7%
-- **Average Delay**: 6.36 hours
+- **Delay Rate**: 7.7%
+- **Average Delay**: 3.62 hours
 
 ## Bottleneck Analysis
 
-- **Highest Utilization**: Machine B Utilization (52.0%)
-- **Lowest Utilization**: Machine C Utilization (29.6%)
+- **Highest Utilization**: Machine B Utilization (49.8%)
+- **Lowest Utilization**: Machine C Utilization (33.0%)
 
 ## Recommendations
