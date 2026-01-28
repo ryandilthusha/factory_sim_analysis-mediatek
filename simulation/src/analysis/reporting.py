@@ -92,8 +92,8 @@ def generate_text_report(kpis: Dict[str, float], summary_stats: Dict[str, Any],
             buffers.add(key.replace('average_', '').replace('max_', '').replace('_level', ''))
     
     for buf in sorted(list(buffers)):
-        avg_val = kpis.get(f'average_{buf}_level', 0)
-        max_val = kpis.get(f'max_{buf}_level', 0)
+        avg_val = kpis.get(f'average_{buf}_level_level', 0)
+        max_val = kpis.get(f'max_{buf}_level_level', 0)
         buf_name = buf.replace('_', ' ').title()
         report_lines.append(f"- **{buf_name}**: Avg: {avg_val:.2f}, Max: {max_val:.0f}")
     report_lines.append("")
