@@ -9,10 +9,21 @@ Welcome to the Production Line Optimization Challenge!
 pip install simpy pyyaml pandas matplotlib
 ```
 
-### 2. Run Baseline Simulation
+### 2. Run Simulation
+
+Navigate to the simulation folder:
 ```bash
 cd simulation
-python main.py
+```
+
+**Run Baseline Configuration:**
+```bash
+python main.py ../config.yaml
+```
+
+**Run Optimized Configuration:**
+```bash
+python main.py ../config_optimized.yaml
 ```
 
 ### 3. Review Results
